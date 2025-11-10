@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="France 2000 - Expert en menuiserie aluminium sur mesure pour les professionnels. Bureau d'études, fabrication et pose dans toute la France.">
+    <title>France 2000 | Menuiserie Aluminium Sur Mesure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 50px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Expertises Section */
+        .expertises {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .expertises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .expertise-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Realisations Section */
+        .realisations {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .realisations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .realisation-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .realisation-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .realisation-content {
+            padding: 20px;
+        }
+
+        .realisation-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .realisation-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .realisation-link {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">FRANCE 2000</a>
+        <nav class="nav-links">
+            <a href="#expertises">Expertises</a>
+            <a href="#realisations">Réalisations</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="cta-button">Demander un devis</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>L'Excellence en Menuiserie Aluminium</h1>
+            <p>35 ans d'expérience au service de vos projets sur mesure, du bureau d'études à la pose.</p>
+            <button class="cta-button">Découvrir nos réalisations</button>
+        </div>
+    </section>
+
+    <!-- Expertises Section -->
+    <section id="expertises" class="expertises">
+        <div class="container">
+            <h2 class="section-title">Nos Expertises</h2>
+            <div class="expertises-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Bureau d'Études</h3>
+                    <p>Conception technique et plans sur mesure pour des projets complexes et innovants.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Fabrication</h3>
+                    <p>Atelier intégré pour une production de qualité, respectant les normes et délais.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Pose & Maintenance</h3>
+                    <p>Installation professionnelle et service après-vente pour une tranquillité totale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realisations Section -->
+    <section id="realisations" class="realisations">
+        <div class="container">
+            <h2 class="section-title">Nos Réalisations</h2>
+            <div class="realisations-grid">
+                <div class="realisation-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Réalisation 1">
+                    <div class="realisation-content">
+                        <h3>Usine Logistique - Reims</h3>
+                        <p>1 200 m² de menuiserie aluminium sur mesure, livrée en 8 semaines.</p>
+                        <a href="#" class="realisation-link">Voir le projet →</a>
+                    </div>
+                </div>
+                <div class="realisation-card">
+                    <img src="https://images.unsplash.com/photo-1581018979925-949c864e05b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Réalisation 2">
+                    <div class="realisation-content">
+                        <h3>Siège Social - Troyes</h3>
+                        <p>Façade vitrée et menuiserie intérieure pour un bâtiment tertiaire.</p>
+                        <a href="#" class="realisation-link">Voir le projet →</a>
+                    </div>
+                </div>
+                <div class="realisation-card">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Réalisation 3">
+                    <div class="realisation-content">
+                        <h3>Centre Commercial - Nancy</h3>
+                        <p>Entrées principales et vitrines en aluminium, design moderne et sécurisé.</p>
+                        <a href="#" class="realisation-link">Voir le projet →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script pour le header qui se fixe au scroll -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
